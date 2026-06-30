@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased;
+    @apply dark:bg-[#0a0a0f] dark:text-slate-100;
+  }
+
+  * {
+    @apply border-slate-200 dark:border-white/10;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl border border-slate-200 bg-white shadow-sm;
+    @apply dark:border-white/10 dark:bg-white/[0.03];
+  }
+
+  .input-base {
+    @apply w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm outline-none transition;
+    @apply placeholder:text-slate-400 focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30;
+    @apply dark:border-white/10 dark:bg-white/5 dark:placeholder:text-slate-500;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition;
+    @apply focus:outline-none focus:ring-2 focus:ring-brand-500/40 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-600 text-white hover:bg-brand-500;
+  }
+
+  .btn-secondary {
+    @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50;
+    @apply dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10;
+  }
+
+  .btn-ghost {
+    @apply btn text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/10;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+}
+
+/* Scrollbar polish */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-slate-300 dark:bg-white/10;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Markdown rendering */
+.prose-review {
+  @apply text-sm leading-relaxed text-slate-700 dark:text-slate-300;
+}
+.prose-review code {
+  @apply rounded bg-slate-100 px-1 py-0.5 font-mono text-[0.85em] text-brand-600 dark:bg-white/10 dark:text-brand-300;
+}
+.prose-review pre {
+  @apply overflow-x-auto rounded-lg bg-slate-900 p-3 text-slate-100;
+}
+.prose-review pre code {
+  @apply bg-transparent p-0 text-slate-100;
+}
